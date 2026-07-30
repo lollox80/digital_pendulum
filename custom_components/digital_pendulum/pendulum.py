@@ -56,6 +56,9 @@ DE_NEXT_HOUR_NAMES = {
     9: "neun", 10: "zehn", 11: "elf", 12: "zwölf",
 }
 
+# Durata nota del chime westminster.mp3 (suonato solo alle ore 12 con tower_clock attivo)
+WESTMINSTER_CHIME_DURATION = 19.0
+
 
 def _create_player(hass, player_entity_id: str, player_type: str):
     if player_type == "google":
@@ -385,7 +388,15 @@ class DigitalPendulum:
         try:
             if self.use_chime:
                 await self._play_chime(hour, minute)
-                await asyncio.sleep(self.after_chime_delay)
+                # Alle 12 in punto (con tower_clock attivo) suona westminster.mp3,
+                # che dura circa 19 secondi: il delay classico configurato
+                # dall'utente non basterebbe, quindi in questo caso specifico
+                # usiamo un'attesa fissa dedicata invece di after_chime_delay.
+                if self.tower_clock and hour == 12 and minute == 0:
+                    delay = WESTMINSTER_CHIME_DURATION
+                else:
+                    delay = self.after_chime_delay
+                await asyncio.sleep(delay)
             if self.voice_announcement:
                 if minute == 30 and not self.announce_half_hours_voice:
                     return
