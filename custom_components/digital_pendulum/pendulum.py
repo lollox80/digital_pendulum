@@ -57,7 +57,7 @@ DE_NEXT_HOUR_NAMES = {
 }
 
 # Durata nota del chime westminster.mp3 (suonato solo alle ore 12 con tower_clock attivo)
-WESTMINSTER_CHIME_DURATION = 19.0
+WESTMINSTER_CHIME_DURATION = 20.0
 
 
 def _create_player(hass, player_entity_id: str, player_type: str):
