@@ -26,7 +26,7 @@
           "language": "Wählen Sie die Sprache für die Zeitansagen. 'Automatisch' verwendet die Spracheinstellung von Home Assistant",
           "custom_chime_path": "Z.B.: www/sounds/bell.mp3 (Formate: MP3, WAV, OGG - leer lassen für Standard)",
           "announce_half_hours_voice": "Wenn deaktiviert, erklingt der Glockenton weiterhin zur halben Stunde, aber die Sprachansage wird nicht durchgeführt",
-          "after_chime_delay": "Wartezeit in Sekunden zwischen Glockenton und Sprachansage (Standard: 1.2)",
+          "after_chime_delay": "Wartezeit in Sekunden zwischen Glockenton und Sprachansage (Standard: 1.8)",
           "use_half_hour_chime": "Wenn aktiviert, wird zur halben Stunde ein dedizierter Klang anstelle des normalen Glockentons abgespielt",
           "announce_quarter_hours": "Wenn aktiviert, wird um :15 und :45 Uhr ein dedizierter Klang abgespielt (keine Sprachansage)"
         }
